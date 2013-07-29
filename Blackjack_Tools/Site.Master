@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Blackjack_Tools.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    <asp:Image ID="img_Logo" ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/BJtools.png"
+                        runat="server" />
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="~/Account/Login.aspx" id="HeadLoginStatus" runat="server">Log In</a>
+                        ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>! [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out"
+                            LogoutPageUrl="~/" />
+                        ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False"
+                    Orientation="Horizontal" StaticSubMenuIndent="">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/home.png"
+                            ToolTip="Home" />
+                        <asp:MenuItem ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/requests.png"
+                            ToolTip="Requests">
+                            <asp:MenuItem NavigateUrl="~/LoggedIn/Crafting.aspx" ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/craft.png"
+                                ToolTip="Crafting"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/LoggedIn/Gathering.aspx" ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/gather.png"
+                                ToolTip="Gathering"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/jobs.png"
+                            NavigateUrl="~/LoggedIn/Default.aspx" ToolTip="User">
+                            <asp:MenuItem ImageUrl="~/Resources/quest_icon.png" 
+                                NavigateUrl="~/LoggedIn/UserSettings.aspx" ToolTip="User Settings">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem ImageUrl="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/admin.png"
+                            NavigateUrl="~/Admin/default.aspx" ToolTip="Admin"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+    <img class="backgroundimage" alt="" src="http://i942.photobucket.com/albums/ad265/thegide/FFXIV%20ARR/Web/ultros.png" width="100%" style="position:fixed; left: 0px; bottom: 0px; z-index: -1" />
+</body>
+</html>
