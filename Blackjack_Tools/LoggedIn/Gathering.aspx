@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Gathering Requests - Blackjack Tools" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="Gathering.aspx.cs" Inherits="Blackjack_Tools._Default" %>
+﻿<%@ Page Title="Gathering Requests - Blackjack Tools" Language="C#" MasterPageFile="~/Site.master"
+    AutoEventWireup="true" CodeBehind="Gathering.aspx.cs" Inherits="Blackjack_Tools._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -8,8 +8,8 @@
     </ajaxToolkit:ToolkitScriptManager>
     <asp:Timer ID="TimerGathering" runat="server" Interval="300000">
     </asp:Timer>
-    <asp:Label ID="lbl_Gathering_Requests" runat="server" Font-Bold="True" 
-        Font-Size="Large" Text="Gathering Requests"></asp:Label>
+    <asp:Label ID="lbl_Gathering_Requests" runat="server" Font-Bold="True" Font-Size="Large"
+        Text="Gathering Requests"></asp:Label>
     <asp:FormView ID="FormView_InsertG_Request" runat="server" DataSourceID="SqlDataSource_GatheringUnfulfilled"
         DefaultMode="Insert" EnableModelValidation="True">
         <EditItemTemplate>
@@ -24,7 +24,8 @@
                         <br />
                     </td>
                     <td>
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -36,11 +37,10 @@
                     <td>
                         <asp:Label ID="lbl_Amount" runat="server" Font-Bold="True" Font-Size="Medium" Text="Amount: "></asp:Label>
                         <asp:TextBox ID="AmountTextBox0" runat="server" Text='<%# Bind("Amount") %>' Width="64px" />
-                        <asp:RangeValidator ID="rangeValidator_Amount" runat="server" 
-                            ControlToValidate="AmountTextBox0" ErrorMessage="*" ForeColor="Red" 
-                            MaximumValue="9999999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
-                        <asp:RequiredFieldValidator ID="requiredValidator_Amount" runat="server" 
-                            ControlToValidate="AmountTextBox0" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="rangeValidator_Amount" runat="server" ControlToValidate="AmountTextBox0"
+                            ErrorMessage="*" ForeColor="Red" MaximumValue="9999999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="requiredValidator_Amount" runat="server" ControlToValidate="AmountTextBox0"
+                            ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                         <ajaxToolkit:FilteredTextBoxExtender ID="AmountTextBox0_FilteredTextBoxExtender"
                             runat="server" Enabled="True" FilterType="Numbers" TargetControlID="AmountTextBox0">
                         </ajaxToolkit:FilteredTextBoxExtender>
@@ -58,48 +58,45 @@
                             ImageUrl="~/Resources/Cancel__Red.png" ToolTip="Clear" />
                     </td>
                     <td>
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Size="Medium" 
-                            Text="Reward Amount: "></asp:Label>
-                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("RewardAmount") %>' 
-                            Width="64px"></asp:TextBox>
-                        <ajaxToolkit:FilteredTextBoxExtender ID="TextBox3_FilteredTextBoxExtender" 
-                            runat="server" Enabled="True" TargetControlID="TextBox3" 
-                            ValidChars="1234567890">
+                        <asp:Label ID="Label10" runat="server" Font-Bold="True" Font-Size="Medium" Text="Reward Amount: "></asp:Label>
+                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("RewardAmount") %>' Width="64px"></asp:TextBox>
+                        <ajaxToolkit:FilteredTextBoxExtender ID="TextBox3_FilteredTextBoxExtender" runat="server"
+                            Enabled="True" TargetControlID="TextBox3" ValidChars="1234567890">
                         </ajaxToolkit:FilteredTextBoxExtender>
-                        <asp:RequiredFieldValidator ID="rfv_RewardAmountInvis" runat="server" 
-                            ControlToValidate="TextBox3" ErrorMessage="*"></asp:RequiredFieldValidator>
-                        <asp:RangeValidator ID="rngv_RewardAmountInvis" runat="server" 
-                            ControlToValidate="TextBox3" ErrorMessage="*" MaximumValue="9999999" 
-                            MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="rfv_RewardAmountInvis" runat="server" ControlToValidate="TextBox3"
+                            ErrorMessage="*"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="rngv_RewardAmountInvis" runat="server" ControlToValidate="TextBox3"
+                            ErrorMessage="*" MaximumValue="9999999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                     </td>
                     <td colspan="2">
-                        <asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Size="Medium" 
-                            Text="Reward Type: "></asp:Label>
-                        <asp:DropDownList ID="DropDownList1" runat="server" 
-                            DataSourceID="SqlDataSourceRewardDB" DataTextField="RewardName" 
-                            DataValueField="RewardID" SelectedValue='<%# Bind("RewardID") %>'>
+                        <asp:Label ID="Label11" runat="server" Font-Bold="True" Font-Size="Medium" Text="Reward Type: "></asp:Label>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSourceRewardDB"
+                            DataTextField="RewardName" DataValueField="RewardID" SelectedValue='<%# Bind("RewardID") %>'>
                         </asp:DropDownList>
                     </td>
                     <td colspan="3">
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
                     <td>
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="6">
                         <asp:SqlDataSource ID="SqlDataSourceGatheredItems" runat="server" ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>"
-                            SelectCommand="SELECT [ItemID], [ItemName] FROM [GatheredItems] ORDER BY [ItemName]">
+                            SelectCommand="SELECT ItemID, ItemName FROM Items WHERE (CraftingGathering = 1) ORDER BY ItemName">
                         </asp:SqlDataSource>
-                        <asp:SqlDataSource ID="SqlDataSourceRewardDB" runat="server" 
-                            ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>" 
+                        <asp:SqlDataSource ID="SqlDataSourceRewardDB" runat="server" ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>"
                             SelectCommand="SELECT * FROM [Rewards]"></asp:SqlDataSource>
                     </td>
                     <td>
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
                 </tr>
             </table>
         </InsertItemTemplate>
@@ -117,16 +114,14 @@
                     <asp:TemplateField HeaderText="Requester" SortExpression="Requester_Name">
                         <ItemTemplate>
                             <asp:Image ID="img_RFlair" runat="server" />
-                            <asp:HyperLink ID="HyperLink1" runat="server" 
-                                NavigateUrl='<%# Eval("Requester_Name", "default.aspx?User={0}") %>' 
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Requester_Name", "default.aspx?User={0}") %>'
                                 Text='<%# Eval("Requester_Name") %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:HyperLinkField DataNavigateUrlFields="LinkURL" DataTextField="ItemName" HeaderText="Item Name"
                         SortExpression="ItemName" Target="_blank" />
-                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" 
-                        DataFormatString="{0:#,###,##0}" >
-                    <ItemStyle HorizontalAlign="Right" />
+                    <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" DataFormatString="{0:#,###,##0}">
+                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:CheckBoxField DataField="HQ" HeaderText="HQ" SortExpression="HQ" />
                     <asp:TemplateField HeaderText="Reward" SortExpression="RewardAmount">
@@ -135,8 +130,7 @@
                         </EditItemTemplate>
                         <ItemStyle HorizontalAlign="Right" />
                         <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" CssClass="currencyvalue" 
-                                Text='<%# Bind("RewardAmount", "{0:#,###,##0}") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" CssClass="currencyvalue" Text='<%# Bind("RewardAmount", "{0:#,###,##0}") %>'></asp:Label>
                             <asp:Image ID="img_Reward" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -150,8 +144,7 @@
                             <asp:Image ID="img_Info" runat="server" ImageAlign="Right" ImageUrl="~/Resources/info_icon.png"
                                 ToolTip='<%# Bind("Date_CheckedOut", "{0:d}") %>' />
                             <asp:Image ID="img_CFlair" runat="server" />
-                            <asp:HyperLink ID="hpl_GCheckedOutBy" runat="server" 
-                                NavigateUrl='<%# Bind("CheckedOutBy_Name", "default.aspx?User={0}") %>' 
+                            <asp:HyperLink ID="hpl_GCheckedOutBy" runat="server" NavigateUrl='<%# Bind("CheckedOutBy_Name", "default.aspx?User={0}") %>'
                                 Text='<%# Bind("CheckedOutBy_Name") %>'></asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -213,16 +206,14 @@
                         <asp:TemplateField HeaderText="Requester" SortExpression="Requester_Name">
                             <ItemTemplate>
                                 <asp:Image ID="img_RFlair" runat="server" />
-                                <asp:HyperLink ID="HyperLink1" runat="server" 
-                                    NavigateUrl='<%# Eval("Requester_Name", "default.aspx?User={0}") %>' 
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Requester_Name", "default.aspx?User={0}") %>'
                                     Text='<%# Eval("Requester_Name") %>'></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:HyperLinkField DataNavigateUrlFields="LinkURL" DataTextField="ItemName" HeaderText="Item Name"
                             SortExpression="ItemName" Target="_blank" />
-                        <asp:BoundField DataField="Amount" HeaderText="Amount" 
-                            SortExpression="Amount" DataFormatString="{0:#,###,##0}" >
-                        <ItemStyle HorizontalAlign="Right" />
+                        <asp:BoundField DataField="Amount" HeaderText="Amount" SortExpression="Amount" DataFormatString="{0:#,###,##0}">
+                            <ItemStyle HorizontalAlign="Right" />
                         </asp:BoundField>
                         <asp:CheckBoxField DataField="HQ" HeaderText="HQ" SortExpression="HQ" />
                         <asp:TemplateField HeaderText="Reward" SortExpression="RewardAmount">
@@ -231,7 +222,7 @@
                             </EditItemTemplate>
                             <ItemStyle HorizontalAlign="Right" />
                             <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("RewardAmount", "{0:#,###,##0}") %>' 
+                                <asp:Label ID="Label3" runat="server" Text='<%# Bind("RewardAmount", "{0:#,###,##0}") %>'
                                     CssClass="currencyvalue"></asp:Label>
                                 <asp:Image ID="img_Reward" runat="server" />
                             </ItemTemplate>
@@ -246,8 +237,7 @@
                                 <asp:Image ID="img_CheckInfo" runat="server" ImageAlign="Right" ImageUrl="~/Resources/info_icon.png"
                                     ToolTip='<%# Bind("Date_CheckedOut", "{0:d}") %>' />
                                 <asp:Image ID="img_CFlair" runat="server" />
-                                <asp:HyperLink ID="hpl_CheckedOutBy" runat="server" 
-                                    NavigateUrl='<%# Bind("CheckedOutBy_Name", "default.aspx?User={0}") %>' 
+                                <asp:HyperLink ID="hpl_CheckedOutBy" runat="server" NavigateUrl='<%# Bind("CheckedOutBy_Name", "default.aspx?User={0}") %>'
                                     Text='<%# Bind("CheckedOutBy_Name") %>'></asp:HyperLink>
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -256,8 +246,8 @@
                                 <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("FulfilledBy_User_ID") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:CheckBox ID="chk_Fulfilled" runat="server" 
-                                    Checked='<%# Bind("Fulfilled") %>' Enabled="False" />
+                                <asp:CheckBox ID="chk_Fulfilled" runat="server" Checked='<%# Bind("Fulfilled") %>'
+                                    Enabled="False" />
                                 <asp:Image ID="img_FulfillInfo" runat="server" ImageAlign="Right" ImageUrl="~/Resources/info_icon.png"
                                     ToolTip='<%# Bind("Date_Fulfilled", "{0:d}") %>' />
                             </ItemTemplate>
@@ -297,11 +287,7 @@
 SET @Today = GetDate();
 
 INSERT INTO GatheringRequests_DB(Requester_ID, GatherableItem_ID, Amount, HQ, Date_Requested, RewardAmount, RewardID) VALUES (@UserName, @ItemID, @Amount, @HQ, @Today, @RewardAmount, @RewardID)"
-        
-        
-        
-        
-        SelectCommand="SELECT GatheringRequests_DB.Date_Fulfilled, GatheringRequests_DB.Date_CheckedOut, GatheringRequests_DB.Date_Requested, GatheringRequests_DB.Amount, GatheringRequests_DB.Requester_ID, GatheringRequests_DB.CheckedOutBy_User_ID, GatheringRequests_DB.Fulfilled, GatheringRequests_DB.Request_ID, GatheringRequests_DB.HQ, GatheredItems.ItemName, GatheredItems.LinkURL, Rewards.RewardName, GatheringRequests_DB.RewardID, GatheringRequests_DB.RewardAmount, aspnet_Users.UserName AS Requester_Name, vw_aspnet_Users.UserName AS CheckedoutBy_Name, vw_aspnet_Users.FulfilledCount AS Check_Fulfilled, aspnet_Users.FulfilledCount AS Request_Fulfilled FROM GatheringRequests_DB INNER JOIN GatheredItems ON GatheringRequests_DB.GatherableItem_ID = GatheredItems.ItemID INNER JOIN Rewards ON GatheringRequests_DB.RewardID = Rewards.RewardID INNER JOIN aspnet_Users ON GatheringRequests_DB.Requester_ID = aspnet_Users.UserId LEFT OUTER JOIN vw_aspnet_Users ON GatheringRequests_DB.CheckedOutBy_User_ID = vw_aspnet_Users.UserId WHERE (GatheringRequests_DB.Fulfilled = 0) ORDER BY GatheringRequests_DB.Date_Requested DESC">
+        SelectCommand="SELECT GatheringRequests_DB.Date_Fulfilled, GatheringRequests_DB.Date_CheckedOut, GatheringRequests_DB.Date_Requested, GatheringRequests_DB.Amount, GatheringRequests_DB.Requester_ID, GatheringRequests_DB.CheckedOutBy_User_ID, GatheringRequests_DB.Fulfilled, GatheringRequests_DB.Request_ID, GatheringRequests_DB.HQ, Rewards.RewardName, GatheringRequests_DB.RewardID, GatheringRequests_DB.RewardAmount, aspnet_Users.UserName AS Requester_Name, vw_aspnet_Users.UserName AS CheckedoutBy_Name, vw_aspnet_Users.FulfilledCount AS Check_Fulfilled, aspnet_Users.FulfilledCount AS Request_Fulfilled, Items.ItemName, Items.LinkURL FROM GatheringRequests_DB INNER JOIN Rewards ON GatheringRequests_DB.RewardID = Rewards.RewardID INNER JOIN aspnet_Users ON GatheringRequests_DB.Requester_ID = aspnet_Users.UserId INNER JOIN Items ON GatheringRequests_DB.GatherableItem_ID = Items.ItemID LEFT OUTER JOIN vw_aspnet_Users ON GatheringRequests_DB.CheckedOutBy_User_ID = vw_aspnet_Users.UserId WHERE (GatheringRequests_DB.Fulfilled = 0) ORDER BY GatheringRequests_DB.Date_Requested DESC">
         <InsertParameters>
             <asp:SessionParameter Name="UserName" SessionField="UserID" />
             <asp:Parameter Name="Amount" />
@@ -312,10 +298,6 @@ INSERT INTO GatheringRequests_DB(Requester_ID, GatherableItem_ID, Amount, HQ, Da
         </InsertParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource_GatheringFulfilled" runat="server" ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>"
-        
-        
-        
-        
-        SelectCommand="SELECT GatheringRequests_DB.Date_Fulfilled, GatheringRequests_DB.Date_CheckedOut, GatheringRequests_DB.Date_Requested, GatheringRequests_DB.Amount, GatheringRequests_DB.Requester_ID, GatheringRequests_DB.CheckedOutBy_User_ID, GatheringRequests_DB.Fulfilled, GatheringRequests_DB.Request_ID, GatheringRequests_DB.HQ, GatheringRequests_DB.Verified, GatheringRequests_DB.Date_Verified, GatheredItems.ItemName, GatheredItems.LinkURL, Rewards.RewardName, GatheringRequests_DB.RewardID, GatheringRequests_DB.RewardAmount, aspnet_Users.UserName AS Requester_Name, vw_aspnet_Users.UserName AS CheckedoutBy_Name, aspnet_Users.FulfilledCount AS Request_Fulfilled, vw_aspnet_Users.FulfilledCount AS Check_Fulfilled FROM GatheringRequests_DB INNER JOIN GatheredItems ON GatheringRequests_DB.GatherableItem_ID = GatheredItems.ItemID INNER JOIN Rewards ON GatheringRequests_DB.RewardID = Rewards.RewardID INNER JOIN aspnet_Users ON GatheringRequests_DB.Requester_ID = aspnet_Users.UserId LEFT OUTER JOIN vw_aspnet_Users ON GatheringRequests_DB.CheckedOutBy_User_ID = vw_aspnet_Users.UserId WHERE (GatheringRequests_DB.Fulfilled = 1) ORDER BY GatheringRequests_DB.Date_Requested DESC">
+        SelectCommand="SELECT GatheringRequests_DB.Date_Fulfilled, GatheringRequests_DB.Date_CheckedOut, GatheringRequests_DB.Date_Requested, GatheringRequests_DB.Amount, GatheringRequests_DB.Requester_ID, GatheringRequests_DB.CheckedOutBy_User_ID, GatheringRequests_DB.Fulfilled, GatheringRequests_DB.Request_ID, GatheringRequests_DB.HQ, GatheringRequests_DB.Verified, GatheringRequests_DB.Date_Verified, Rewards.RewardName, GatheringRequests_DB.RewardID, GatheringRequests_DB.RewardAmount, aspnet_Users.UserName AS Requester_Name, vw_aspnet_Users.UserName AS CheckedoutBy_Name, aspnet_Users.FulfilledCount AS Request_Fulfilled, vw_aspnet_Users.FulfilledCount AS Check_Fulfilled, Items.ItemName, Items.LinkURL FROM GatheringRequests_DB INNER JOIN Rewards ON GatheringRequests_DB.RewardID = Rewards.RewardID INNER JOIN aspnet_Users ON GatheringRequests_DB.Requester_ID = aspnet_Users.UserId INNER JOIN Items ON GatheringRequests_DB.GatherableItem_ID = Items.ItemID LEFT OUTER JOIN vw_aspnet_Users ON GatheringRequests_DB.CheckedOutBy_User_ID = vw_aspnet_Users.UserId WHERE (GatheringRequests_DB.Fulfilled = 1) ORDER BY GatheringRequests_DB.Date_Requested DESC">
     </asp:SqlDataSource>
 </asp:Content>

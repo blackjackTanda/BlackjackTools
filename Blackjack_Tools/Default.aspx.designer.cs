@@ -67,6 +67,33 @@ namespace Blackjack_Tools {
         protected global::AjaxControlToolkit.Accordion acc_Patchnotes;
         
         /// <summary>
+        /// lbl_SixthHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_SixthHeader;
+        
+        /// <summary>
+        /// lbl_SixthChanges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_SixthChanges;
+        
+        /// <summary>
+        /// bul_SixthChanges control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList bul_SixthChanges;
+        
+        /// <summary>
         /// PaneFive control.
         /// </summary>
         /// <remarks>

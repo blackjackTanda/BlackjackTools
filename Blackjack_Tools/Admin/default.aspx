@@ -256,10 +256,14 @@
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSourceCraftedItems" runat="server" ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>"
                                 
-                                SelectCommand="SELECT ItemID, ItemName, LinkURL, ItemLevel, Profession_ID FROM CraftedItems ORDER BY ItemName" DeleteCommand="DELETE FROM CraftedItems WHERE (ItemID = @ItemID)"
-                                InsertCommand="INSERT INTO CraftedItems(ItemName, LinkURL, ItemLevel) VALUES (@ItemName, @LinkURL, @ItemLevel)"
-                                UpdateCommand="UPDATE CraftedItems SET ItemName = @ItemName, LinkURL = @LinkURL, ItemLevel = @ItemLevel
-WHERE ItemID= @ItemID">
+                                
+                                SelectCommand="SELECT ItemID, ItemName, CraftingGathering, LinkURL, ItemLevel, ProfessionID FROM Items WHERE (CraftingGathering = 0)" DeleteCommand="DELETE FROM Items WHERE (ItemID = @ItemID)"
+                                InsertCommand="INSERT INTO Items(ItemName, CraftingGathering, LinkURL, ItemLevel) VALUES (@ItemName, 0, @LinkURL, @ItemLevel)"
+                                
+                                UpdateCommand="UPDATE Items SET ItemName = @ItemName, LinkURL = @LinkURL, ItemLevel = @ItemLevel WHERE (ItemID = @ItemID)">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="ItemID" />
+                                </DeleteParameters>
                                 <InsertParameters>
                                     <asp:Parameter Name="ItemName" />
                                     <asp:Parameter Name="LinkURL" />
@@ -318,10 +322,15 @@ WHERE ItemID= @ItemID">
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSourceGatheredItems" runat="server" ConnectionString="<%$ ConnectionStrings:BlackjackTools_DB %>"
                                 
-                                SelectCommand="SELECT ItemID, ItemName, LinkURL, ItemLevel, Profession_ID FROM GatheredItems ORDER BY ItemName" DeleteCommand="DELETE FROM GatheredItems WHERE (ItemID = @ItemID)"
-                                InsertCommand="INSERT INTO GatheredItems(ItemName, LinkURL, ItemLevel) VALUES (@ItemName, @LinkURL, @ItemLevel)"
                                 
-                                UpdateCommand="UPDATE GatheredItems SET ItemName = @ItemName, LinkURL = @LinkURL, ItemLevel = @ItemLevel WHERE (ItemID = @ItemID)">
+                                SelectCommand="SELECT ItemID, ItemName, CraftingGathering, LinkURL, ItemLevel, ProfessionID FROM Items WHERE (CraftingGathering = 1)" DeleteCommand="DELETE FROM Items WHERE (ItemID = @ItemID)"
+                                InsertCommand="INSERT INTO Items(ItemName, CraftingGathering, LinkURL, ItemLevel) VALUES (@ItemName, 1, @LinkURL, @ItemLevel)"
+                                
+                                
+                                UpdateCommand="UPDATE Items SET ItemName = @ItemName, LinkURL = @LinkURL, ItemLevel = @ItemLevel WHERE (ItemID = @ItemID)">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="ItemID" />
+                                </DeleteParameters>
                                 <InsertParameters>
                                     <asp:Parameter Name="ItemName" />
                                     <asp:Parameter Name="LinkURL" />

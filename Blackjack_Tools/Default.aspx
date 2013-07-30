@@ -29,6 +29,19 @@
         <ajaxToolkit:Accordion ID="acc_Patchnotes" runat="server" 
             FadeTransitions="True" RequireOpenedPane="False" Width="80%">
             <Panes>
+                <ajaxToolkit:AccordionPane runat="server">
+                <Header>
+                    <asp:Label ID="lbl_SixthHeader" Width="100%" runat="server" BackColor="Silver" Font-Bold="true" Font-Size="Medium" Text="Version 0.7.3 - 07/29/13"></asp:Label>
+                </Header>
+                <Content>
+                    <asp:Label ID="lbl_SixthChanges" runat="server" Font-Bold="true" Text="Changes"></asp:Label>
+                    <asp:BulletedList ID="bul_SixthChanges" runat="server">
+                    <asp:ListItem>
+                        Added a new page with a lot of features, of which, a grand total of none currently work.
+                    </asp:ListItem>
+                    </asp:BulletedList>
+                </Content>
+                </ajaxToolkit:AccordionPane>
                 <ajaxToolkit:AccordionPane ID="PaneFive" runat="server">
                 <Header>
                     <asp:Label ID="lbl_FifthHeader" Width="100%" runat="server" BackColor="Silver" Font-Bold="true" Font-Size="Medium" Text="Version 0.7.2 - 07/25/13"></asp:Label>
